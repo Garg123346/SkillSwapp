@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+# ----------------------------------------------------------------------------
+# SkillSwap Maven Wrapper Script for Unix/Linux/macOS
+# ----------------------------------------------------------------------------
+if command -v mvn >/dev/null 2>&1; then
+    exec mvn "$@"
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+FALLBACK_MVN="$SCRIPT_DIR/../maven/apache-maven-3.9.9/bin/mvn"
+if [ -f "$FALLBACK_MVN" ]; then
+    chmod +x "$FALLBACK_MVN"
+    exec "$FALLBACK_MVN" "$@"
+fi
+
+echo "ERROR: Maven not found on PATH. Please install Apache Maven 3.9+."
+exit 1

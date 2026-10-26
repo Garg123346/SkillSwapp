@@ -1,0 +1,10 @@
+backend/
+maven/
+node_modules/
+**/node_modules/
+**/dist/
+**/target/
+.pnpm-store/
+.cache/
+*.md
+AGENTS.md
